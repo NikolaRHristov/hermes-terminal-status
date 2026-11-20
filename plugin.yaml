@@ -1,0 +1,19 @@
+name: hermes-terminal-status
+version: "1.0.0"
+description: "Report a Hermes session's live state (idle, working, blocked, done, error) to its terminal with OSC 7501, the Program Status Protocol, so a terminal that lists agents by status - herdr-core, the engine under the Herdr desktop and phone apps, first among them - shows the session as an agent instead of a plain shell. Works when turns run in the Hermes gateway, and covers the classic CLI and the TUI alike. Uses documented hooks only and patches nothing."
+author: "Nikola Hristov"
+license: MIT
+requires_hermes: ">=0.23.1"
+platforms: [linux, macos]
+tags: [terminal, status, osc7501, tui, cli]
+kind: standalone
+provides_hooks:
+  - on_session_start
+  - on_session_reset
+  - pre_llm_call
+  - post_llm_call
+  - pre_approval_request
+  - post_approval_response
+  - on_human_input_request
+  - on_human_input_resolved
+  - on_session_end
